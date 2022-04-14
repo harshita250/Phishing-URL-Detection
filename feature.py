@@ -17,7 +17,7 @@ def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
 
 
-def generate_data_set(url):
+def generate_data_set(url,index):
 
     data_set = []
 
@@ -46,7 +46,9 @@ def generate_data_set(url):
     except:
         global_rank = -1
 
-     
+    #0. add index
+    data_set.append(index)
+
     # 1.UsingIP
     try:
         ipaddress.ip_address(url)
@@ -452,10 +454,13 @@ def generate_data_set(url):
     return data_set
 
 dataset = pd.read_csv('dataset_phishing.csv')
+data = pd.read_csv('phishing.csv')
+index = data.shape[0] + 2
 step=0
-for step in range(0,100):
+for step in range(0,5):
     url=dataset['url'][step]
-    row = generate_data_set(url)
+    row = generate_data_set(url,index)
+    index = index + 1
     with open('phishing.csv', 'a') as f:
     # create the csv writer
       writer = csv.writer(f)
