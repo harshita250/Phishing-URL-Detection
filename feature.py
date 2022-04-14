@@ -10,6 +10,8 @@ from datetime import date, datetime
 import time
 from dateutil.parser import parse as date_parse
 import pandas as pd
+import csv
+
 
 def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
@@ -451,7 +453,11 @@ def generate_data_set(url):
 
 dataset = pd.read_csv('dataset_phishing.csv')
 step=0
-for step in range(1,10):
-    dataset['url'][step]
-    data_set = generate_data_set('http://www.assignmentpoint.com/business/marketing-business/11039.html')
-    print(data_set)
+for step in range(0,100):
+    url=dataset['url'][step]
+    row = generate_data_set(url)
+    with open('phishing.csv', 'a') as f:
+    # create the csv writer
+      writer = csv.writer(f)
+    # write a row to the csv 
+      writer.writerow(row)
