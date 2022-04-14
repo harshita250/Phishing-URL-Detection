@@ -452,6 +452,6 @@ def generate_data_set(url):
 dataset = pd.read_csv('dataset_phishing.csv')
 step=0
 for step in range(1,10):
-    dataset.loc['url'][step]
+    dataset['url'][step]
     data_set = generate_data_set('http://www.assignmentpoint.com/business/marketing-business/11039.html')
     print(data_set)
