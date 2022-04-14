@@ -9,7 +9,7 @@ import whois
 from datetime import date, datetime
 import time
 from dateutil.parser import parse as date_parse
-
+import pandas as pd
 
 def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
@@ -449,5 +449,9 @@ def generate_data_set(url):
 
     return data_set
 
-data_set = generate_data_set('http://www.assignmentpoint.com/business/marketing-business/11039.html')
-print(data_set)
+dataset = pd.read_csv('phishing_dataset.csv')
+step=0
+for step in range(1,10):
+    dataset.loc['url'][step]
+    data_set = generate_data_set('http://www.assignmentpoint.com/business/marketing-business/11039.html')
+    print(data_set)
