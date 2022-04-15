@@ -453,12 +453,12 @@ def generate_data_set(url,index):
 
     return data_set
 
-dataset = pd.read_csv("phishing_site_urls.csv")
+dataset = pd.read_csv("dataset_phishing.csv")
 data = pd.read_csv("phishing.csv")
 index = data.shape[0] + 2
 step=0
-for step in range(0,1001):
-    url=dataset['URL'][step]
+for step in range(0,10):
+    url=dataset['url'][step]
     row = generate_data_set(url,index)
     index = index + 1
     with open('phishing.csv', 'a') as f:
