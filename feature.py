@@ -453,7 +453,7 @@ def generate_data_set(url,index):
 
     return data_set
 
-dataset = pd.read_csv('urlset.csv')
+dataset = pd.read_csv('urlset.csv',encoding= 'unicode_escape')
 data = pd.read_csv('phishing.csv')
 index = data.shape[0] + 2
 step=0
