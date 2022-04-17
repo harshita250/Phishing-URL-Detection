@@ -11,11 +11,18 @@ import time
 from dateutil.parser import parse as date_parse
 import pandas as pd
 import csv
+import numpy as np
 
 
 def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
 
+
+def clean_dataset(df):
+    assert isinstance(df, pd.DataFrame), "df needs to be a pd.DataFrame"
+    df.dropna(inplace=True)
+    indices_to_keep = ~df.isin([np.nan, np.inf, -np.inf]).any(1)
+    return df[indices_to_keep].astype(np.float64)
 
 def generate_data_set(url,index):
 
@@ -450,7 +457,7 @@ def generate_data_set(url,index):
     except:
         data_set.append(1)
         
-
+    clean_dataset(data_set)
     return data_set
 
 dataset = pd.read_csv("dataset_phishing.csv")
