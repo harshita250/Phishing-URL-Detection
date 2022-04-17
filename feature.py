@@ -19,7 +19,7 @@ def diff_month(d1, d2):
 
 def clean_dataset(df):
     df = [v for v in df if not (math.isinf(v) or math.isnan(v))]
-print(df)
+    print(df)
 
 def generate_data_set(url,index):
 
