@@ -11,15 +11,16 @@ import time
 from dateutil.parser import parse as date_parse
 import pandas as pd
 import csv
-import math
+from math import *
 
 def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
 
 
 def clean_dataset(df):
-    df = [v for v in df if not math.isnan(v) and not math.isinf(v)]
-    #print(df)
+    for v in df:
+        if not ((isnan(v)) or (v == float('Inf')) or (v == float('-Inf'))):
+            df.append(v)    #print(df)
     return df
 
 def generate_data_set(url,index):
