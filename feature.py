@@ -19,8 +19,10 @@ def diff_month(d1, d2):
 
 
 def clean_dataset(df):
-    df.dropna(inplace=True)
-    indices_to_keep = ~df.isin([np.nan, np.inf, -np.inf]).any(1)
+    for sub_df in df:
+        dr=sub_df.dropna(how='all')
+        indices_to_keep = ~df.isin([np.nan, np.inf, -np.inf]).any(1)
+    
     return df[indices_to_keep].astype(np.float64)
 
 def generate_data_set(url,index):
@@ -456,8 +458,7 @@ def generate_data_set(url,index):
     except:
         data_set.append(1)
         
-    #clean_dataset(data_set)
-    print(type(data_set))
+    clean_dataset(data_set)
     return data_set
 
 dataset = pd.read_csv("dataset_phishing.csv")
