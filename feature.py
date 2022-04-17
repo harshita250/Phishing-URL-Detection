@@ -18,7 +18,7 @@ def diff_month(d1, d2):
 
 
 def clean_dataset(df):
-    df = [v for v in df if not (math.isinf(v) or math.isnan(v))]
+    df = [v for v in df if not math.isnan(v) and not math.isinf(v)]
     #print(df)
     return df
 
