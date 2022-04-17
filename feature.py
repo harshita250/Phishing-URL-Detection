@@ -20,6 +20,7 @@ def diff_month(d1, d2):
 def clean_dataset(df):
     df = [v for v in df if not (math.isinf(v) or math.isnan(v))]
     #print(df)
+    return df
 
 def generate_data_set(url,index):
 
@@ -454,7 +455,7 @@ def generate_data_set(url,index):
     except:
         data_set.append(1)
         
-    clean_dataset(data_set)
+    data_set=clean_dataset(data_set)
     return data_set
 
 dataset = pd.read_csv("dataset_phishing.csv")
