@@ -456,6 +456,7 @@ def generate_data_set(url,index):
         data_set.append(1)
         
     data_set=clean_dataset(data_set)
+    print(data_set)
     return data_set
 
 dataset = pd.read_csv("dataset_phishing.csv")
