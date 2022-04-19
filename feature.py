@@ -437,7 +437,7 @@ def generate_data_set(url,index,status):
 
      
     # 30. StatsReport
-    '''url_match = re.search(
+    url_match = re.search(
         'at\.ua|usa\.cc|baltazarpresentes\.com\.br|pe\.hu|esy\.es|hol\.es|sweddy\.com|myjino\.ru|96\.lt|ow\.ly', url)
     try:
         ip_address = socket.gethostbyname(domain)
@@ -454,7 +454,8 @@ def generate_data_set(url,index,status):
         else:
             data_set.append(1)
     except:
-        data_set.append(1)'''
+        print("ENTERED")
+        data_set.append(1)
 
     if status == "legitimate":
         data_set.append(1)
