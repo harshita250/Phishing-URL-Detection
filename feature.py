@@ -473,7 +473,7 @@ step=0
 for step in range(0,3):
     url=dataset['url'][step]
     print(step)
-    row = generate_data_set(url,index,status)
+    row = generate_data_set(url,index,label)
     index = index + 1
     step = step + 1
     with open('phishing.csv', 'a') as f:
