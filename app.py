@@ -19,7 +19,7 @@ X = data.drop(["class"],axis =1)
 y = data["class"]
 
 # instantiate the model
-gbc = GradientBoostingClassifier(max_depth=4,learning_rate=0.7)
+gbc = GradientBoostingClassifier(max_depth=4,learning_rate=0.6)
 
 # fit the model 
 gbc.fit(X,y)

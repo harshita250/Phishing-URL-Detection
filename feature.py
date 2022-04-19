@@ -22,7 +22,6 @@ def clean_dataset(df):
     for v in df:
         if not ((isnan(v)) or (v == float('Inf')) or (v == float('-Inf'))):
             df.append(v)
-            print(df)   
     return df
 
 def generate_data_set(url,index):
@@ -470,6 +469,7 @@ for step in range(0,3):
     url=dataset['url'][step]
     row = generate_data_set(url,index)
     index = index + 1
+    step = step + 1
     with open('phishing.csv', 'a') as f:
     # create the csv writer
       writer = csv.writer(f)
