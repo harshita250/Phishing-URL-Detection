@@ -28,7 +28,7 @@ def generate_data_set(url,index):
 
     data_set = []
     data_set.append(index)
-    
+
     if not re.match(r"^https?", url):
         url = "http://" + url
 
@@ -457,7 +457,7 @@ def generate_data_set(url,index):
     except:
         data_set.append(1)
         
-    #data_set=clean_dataset(data_set)
+    data_set=clean_dataset(data_set)
     #print(data_set)
     return data_set
 
