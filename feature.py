@@ -19,10 +19,11 @@ def diff_month(d1, d2):
 
 
 def clean_dataset(df):
-    df = [v for v in df if not isnan(v) and not isinf(v)]
+    df = [v for v in df if not isnan(v)]
+    print(df)
     return df
 
-def generate_data_set(url,index):
+def generate_data_set(url,index,status):
 
     data_set = []
     data_set.append(index)
@@ -436,7 +437,7 @@ def generate_data_set(url,index):
 
      
     # 30. StatsReport
-    url_match = re.search(
+    '''url_match = re.search(
         'at\.ua|usa\.cc|baltazarpresentes\.com\.br|pe\.hu|esy\.es|hol\.es|sweddy\.com|myjino\.ru|96\.lt|ow\.ly', url)
     try:
         ip_address = socket.gethostbyname(domain)
@@ -453,20 +454,26 @@ def generate_data_set(url,index):
         else:
             data_set.append(1)
     except:
+        data_set.append(1)'''
+
+    if status == "legitimate":
         data_set.append(1)
-        
+    else:
+        data_set.append(-1)
+
     data_set=clean_dataset(data_set)
     #print(data_set)
     return data_set
 
 dataset = pd.read_csv("dataset_phishing.csv")
+label = dataset['status']
 data = pd.read_csv("phishing.csv")
 index = data.shape[0] 
 step=0
 for step in range(0,3):
     url=dataset['url'][step]
     print(step)
-    row = generate_data_set(url,index)
+    row = generate_data_set(url,index,status)
     index = index + 1
     step = step + 1
     with open('phishing.csv', 'a') as f:
