@@ -467,6 +467,7 @@ index = data.shape[0]
 step=0
 for step in range(0,3):
     url=dataset['url'][step]
+    print(step)
     row = generate_data_set(url,index)
     index = index + 1
     step = step + 1
