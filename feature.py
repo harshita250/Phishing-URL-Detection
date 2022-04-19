@@ -472,6 +472,7 @@ step=0
 for step in range(0,3):
     url=dataset['url'][step]
     label = dataset['status'][step]
+    print(label)
     print(step)
     row = generate_data_set(url,index,label)
     index = index + 1
