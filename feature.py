@@ -27,7 +27,8 @@ def clean_dataset(df):
 def generate_data_set(url,index):
 
     data_set = []
-
+    data_set.append(index)
+    
     if not re.match(r"^https?", url):
         url = "http://" + url
 
@@ -54,7 +55,6 @@ def generate_data_set(url,index):
         global_rank = -1
 
     #0. add index
-    data_set.append(index)
 
     # 1.UsingIP
     try:
