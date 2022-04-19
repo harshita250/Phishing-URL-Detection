@@ -466,12 +466,12 @@ def generate_data_set(url,index,status):
     return data_set
 
 dataset = pd.read_csv("dataset_phishing.csv")
-label = dataset['status']
 data = pd.read_csv("phishing.csv")
 index = data.shape[0] 
 step=0
 for step in range(0,3):
     url=dataset['url'][step]
+    label = dataset['status'][step]
     print(step)
     row = generate_data_set(url,index,label)
     index = index + 1
