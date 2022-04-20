@@ -457,22 +457,20 @@ def generate_data_set(url,index,status):
         print("ENTERED")
         data_set.append(1)
 
-    if status == "bad":
-        data_set.append(-1)
-    else:
-        data_set.append(1)
+ 
+    data_set.append(label)
 
     data_set=clean_dataset(data_set)
     #print(data_set)
     return data_set
 
-dataset = pd.read_csv("phishing_site_urls.csv")
+dataset = pd.read_csv("urlset.csv")
 data = pd.read_csv("phishing.csv")
 index = data.shape[0] 
 step=0
 for step in range(0,3):
-    url=dataset['URL'][step]
-    label = dataset['Label'][step]
+    url=dataset['domain'][step]
+    label = dataset['label'][step]
     print(label)
     print(step)
     row = generate_data_set(url,index,label)
