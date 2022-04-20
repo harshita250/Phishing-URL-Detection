@@ -18,15 +18,15 @@ def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
 
 
-def clean_dataset(df):
+'''def clean_dataset(df):
     df = [v for v in df if not isnan(v)]
     print(df)
-    return df
+    return df'''
 
 def generate_data_set(url,index,status):
 
     data_set = []
-    data_set.append(index)
+    #data_set.append(index)
 
     if not re.match(r"^https?", url):
         url = "http://" + url
@@ -454,19 +454,21 @@ def generate_data_set(url,index,status):
         else:
             data_set.append(1)
     except:
-        print("ENTERED")
+        #print("ENTERED")
         data_set.append(1)
 
     #data_set.append(0)
-    if status == "legitimate":
+    '''if status == "legitimate":
         data_set.append(1)
     else:
-        data_set.append(-1)
+        data_set.append(-1)'''
 
-    data_set=clean_dataset(data_set)
+    #data_set=clean_dataset(data_set)
     #print(data_set)
     return data_set
 
+
+'''
 dataset = pd.read_csv("dataset_phishing.csv")
 data = pd.read_csv("phishing.csv")
 index = data.shape[0] 
@@ -483,4 +485,4 @@ for step in range(0,3):
     # create the csv writer
       writer = csv.writer(f)
     # write a row to the csv 
-      writer.writerow(row)
+      writer.writerow(row) '''
