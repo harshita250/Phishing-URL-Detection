@@ -457,10 +457,10 @@ def generate_data_set(url,index,status):
         print("ENTERED")
         data_set.append(1)
 
-    if status == "legitimate":
-        data_set.append(1)
-    else:
+    if status == "bad":
         data_set.append(-1)
+    else:
+        data_set.append(1)
 
     data_set=clean_dataset(data_set)
     #print(data_set)
