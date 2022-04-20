@@ -453,7 +453,7 @@ def generate_data_set(url,index,status):
             data_set.append(-1)
         else:
             data_set.append(1)
-    finally:
+    except:
         print("ENTERED")
         data_set.append(1)
 
@@ -466,13 +466,13 @@ def generate_data_set(url,index,status):
     #print(data_set)
     return data_set
 
-dataset = pd.read_csv("dataset_phishing.csv")
+dataset = pd.read_csv("phishing_site_urls.csv")
 data = pd.read_csv("phishing.csv")
 index = data.shape[0] 
 step=0
 for step in range(0,3):
     url=dataset['url'][step]
-    label = dataset['status'][step]
+    label = dataset['Label'][step]
     print(label)
     print(step)
     row = generate_data_set(url,index,label)
