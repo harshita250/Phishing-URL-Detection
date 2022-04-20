@@ -23,7 +23,7 @@ def diff_month(d1, d2):
     print(df)
     return df'''
 
-def generate_data_set(url,index,status):
+def generate_data_set(url):
 
     data_set = []
     #data_set.append(index)
