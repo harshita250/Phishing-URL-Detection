@@ -457,7 +457,7 @@ def generate_data_set(url,index,status):
         print("ENTERED")
         data_set.append(1)
 
-    data_set.append(0)
+    #data_set.append(0)
     if status == "legitimate":
         data_set.append(1)
     else:
