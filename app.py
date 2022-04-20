@@ -38,7 +38,7 @@ def predict():
     if request.method == "POST":
 
         url = request.form["url"]
-        x = np.array(generate_data_set(url,index)).reshape(1,30) 
+        x = np.array(generate_data_set(url)).reshape(1,30) 
         y_pred =gbc.predict(x)[0]
         #1 is safe       
         #-1 is unsafe
