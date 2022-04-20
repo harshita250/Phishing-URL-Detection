@@ -453,7 +453,7 @@ def generate_data_set(url,index,status):
             data_set.append(-1)
         else:
             data_set.append(1)
-    except:
+    finally:
         print("ENTERED")
         data_set.append(1)
 
