@@ -471,7 +471,7 @@ data = pd.read_csv("phishing.csv")
 index = data.shape[0] 
 step=0
 for step in range(0,3):
-    url=dataset['url'][step]
+    url=dataset['URL'][step]
     label = dataset['Label'][step]
     print(label)
     print(step)
