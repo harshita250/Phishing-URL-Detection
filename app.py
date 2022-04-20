@@ -13,7 +13,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 data = pd.read_csv("phishing.csv")
 #droping index column
 data = data.drop(['Index'],axis = 1)
-print(data)
+#print(data)
 # Splitting the dataset into dependant and independant fetature
 
 X = data.drop(["class"],axis =1)
